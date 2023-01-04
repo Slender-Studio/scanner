@@ -5,7 +5,7 @@ using System.Linq;
 namespace Slender.AssemblyScanner
 {
 
-    public class AssemblyScanVisitor
+    public abstract class AssemblyScanVisitor
     {
 
         #region - - - - - - Methods - - - - - -
