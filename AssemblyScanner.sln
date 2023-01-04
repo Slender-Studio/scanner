@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.AssemblyScanner", "src\Slender.AssemblyScanner\Slender.AssemblyScanner.csproj", "{B466C446-1312-4A45-B4A4-ED01C443C889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slender.AssemblyScanner.Tests", "test\Slender.AssemblyScanner.Tests\Slender.AssemblyScanner.Tests.csproj", "{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B466C446-1312-4A45-B4A4-ED01C443C889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B466C446-1312-4A45-B4A4-ED01C443C889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B466C446-1312-4A45-B4A4-ED01C443C889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B466C446-1312-4A45-B4A4-ED01C443C889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF0B09F9-081E-45AF-BED2-8B942D385A70}
+	EndGlobalSection
+EndGlobal
