@@ -20,8 +20,15 @@ namespace Slender.AssemblyScanner
                 ? Enumerable.Empty<Type>()
                 : type.BaseType.GetBaseTypes().Union(new[] { type.BaseType });
 
-        internal static IEnumerable<Type> GetDirectInterfaces(this Type type)
-            => type.GetInterfaces().Except(type.GetInterfaces().SelectMany(i => i.GetInterfaces()));
+        /// <summary>
+        /// Gets all interfaces implemented by this type that are not implemented through inheritence.
+        /// </summary>
+        /// <param name="type">The type to get all direct interfaces for.</param>
+        /// <returns>An enumerable of types that are implemented by the specified type.</returns>
+        public static IEnumerable<Type> GetDirectInterfaces(this Type type)
+            => type.GetInterfaces()
+                .Except(type.BaseType?.GetInterfaces() ?? Enumerable.Empty<Type>())
+                .Except(type.GetInterfaces().SelectMany(i => i.GetInterfaces()));
 
         #endregion Methods
 
