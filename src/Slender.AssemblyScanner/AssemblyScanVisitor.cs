@@ -47,7 +47,7 @@ namespace Slender.AssemblyScanner
                     foreach (var _AbstractBase in GetAbstractBases(_Type))
                         GetOrAdd(_AbstractImplementations, _AbstractBase).Add(_Type);
 
-                    foreach (var _Interface in _Type.GetDirectInterfaces())
+                    foreach (var _Interface in _Type.GetInterfaces())
                         GetOrAdd(_InterfaceImplementations, _Interface).Add(_Type);
                 }
             }
