@@ -17,8 +17,8 @@ namespace Slender.AssemblyScanner
             => type == null
                 ? Enumerable.Empty<Type>()
                 : type.IsAbstract
-                    ? GetAbstractBases(type.BaseType).Union(new[] { type })
-                    : GetAbstractBases(type.BaseType);
+                    ? GetAbstractBases(type.GetBaseType()).Union(new[] { type })
+                    : GetAbstractBases(type.GetBaseType());
 
         private static List<Type> GetOrAdd(Dictionary<Type, List<Type>> dictionary, Type type)
         {
@@ -64,7 +64,7 @@ namespace Slender.AssemblyScanner
                     foreach (var _AbstractBase in GetAbstractBases(_Type))
                         GetOrAdd(_AbstractImplementations, _AbstractBase).Add(_Type);
 
-                    foreach (var _Interface in _Type.GetInterfaces())
+                    foreach (var _Interface in _Type.GetImplementedInterfaces())
                         GetOrAdd(_InterfaceImplementations, _Interface).Add(_Type);
                 }
             }
