@@ -5,6 +5,9 @@ using System.Linq;
 namespace Slender.AssemblyScanner
 {
 
+    /// <summary>
+    /// Represents a visitor for an <see cref="IAssemblyScan"/>.
+    /// </summary>
     public abstract class AssemblyScanVisitor
     {
 
@@ -28,23 +31,23 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the abstract Type.
+        /// Visits the specified abstract <see cref="Type"/>.
         /// </summary>
-        /// <param name="abstractType">The abstract Type being visited.</param>
+        /// <param name="abstractType">The abstract <see cref="Type"/> being visited.</param>
         protected virtual void VisitAbstract(Type abstractType) { }
 
         /// <summary>
-        /// Visits the Abstract Type and its inheritor Types.
+        /// Visits the specified abstract <see cref="Type"/> and its inheritor types.
         /// </summary>
-        /// <param name="abstractType">The abstract Type being visited.</param>
-        /// <param name="implementationTypes">The instantiable class Types that inherit the abstract Type.</param>
+        /// <param name="abstractType">The abstract <see cref="Type"/> being visited.</param>
+        /// <param name="implementationTypes">The instantiable class types that inherit the abstract <see cref="Type"/>.</param>
         protected virtual void VisitAbstractAndImplementations(Type abstractType, IEnumerable<Type> implementationTypes) { }
 
         /// <summary>
-        /// Visits the AssemblyScan.
+        /// Visits the specified <paramref name="scan"/>.
         /// </summary>
-        /// <param name="scan">The AssemblyScan being visited.</param>
-        /// <exception cref="ArgumentNullException">Thrown when scan is null.</exception>
+        /// <param name="scan">The <see cref="AssemblyScan"/> being visited.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the specified <paramref name="scan"/> is null.</exception>
         public virtual void VisitAssemblyScan(IAssemblyScan scan)
         {
             if (scan is null) throw new ArgumentNullException(nameof(scan));
@@ -74,40 +77,40 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the delegate Type.
+        /// Visits the delegate <see cref="Type"/>.
         /// </summary>
-        /// <param name="delegateType">The delegate Type being visited.</param>
+        /// <param name="delegateType">The delegate <see cref="Type"/> being visited.</param>
         protected virtual void VisitDelegate(Type delegateType) { }
 
         /// <summary>
-        /// Visits the enumeration Type.
+        /// Visits the enumeration <see cref="Type"/>.
         /// </summary>
-        /// <param name="enumerationType">The enumeration Type being visited.</param>
+        /// <param name="enumerationType">The enumeration <see cref="Type"/> being visited.</param>
         protected virtual void VisitEnumeration(Type enumerationType) { }
 
         /// <summary>
-        /// Visits the instantiable class Type.
+        /// Visits the instantiable class <see cref="Type"/>.
         /// </summary>
-        /// <param name="implementationType">The instantiable class Type being visited.</param>
+        /// <param name="implementationType">The instantiable class <see cref="Type"/> being visited.</param>
         protected virtual void VisitImplementation(Type implementationType) { }
 
         /// <summary>
-        /// Visits the interface Type.
+        /// Visits the interface <see cref="Type"/>.
         /// </summary>
-        /// <param name="interfaceType">The interface Type being visited.</param>
+        /// <param name="interfaceType">The interface <see cref="Type"/> being visited.</param>
         protected virtual void VisitInterface(Type interfaceType) { }
 
         /// <summary>
-        /// Visits the interface Type and its implementer Types.
+        /// Visits the interface <see cref="Type"/> and its implementer types.
         /// </summary>
-        /// <param name="interfaceType">The interface Type being visited.</param>
-        /// <param name="implementationTypes">The instantiable class Types that implement the interface Type.</param>
+        /// <param name="interfaceType">The interface <see cref="Type"/> being visited.</param>
+        /// <param name="implementationTypes">The instantiable class types that implement the interface <see cref="Type"/>.</param>
         protected virtual void VisitInterfaceAndImplementations(Type interfaceType, IEnumerable<Type> implementationTypes) { }
 
         /// <summary>
-        /// Visits the Type.
+        /// Visits the <see cref="Type"/>.
         /// </summary>
-        /// <param name="type">The Type being visited.</param>
+        /// <param name="type">The <see cref="Type"/> being visited.</param>
         protected virtual void VisitType(Type type)
         {
             if (type.IsEnum)
@@ -132,9 +135,9 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the value Type.
+        /// Visits the value <see cref="Type"/>.
         /// </summary>
-        /// <param name="valueType">The value Type being visited.</param>
+        /// <param name="valueType">The value <see cref="Type"/> being visited.</param>
         protected virtual void VisitValueType(Type valueType) { }
 
         #endregion Methods
