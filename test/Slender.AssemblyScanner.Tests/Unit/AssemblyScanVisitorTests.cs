@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Moq;
+using Slender.AssemblyScanner.Tests.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,27 @@ namespace Slender.AssemblyScanner.Tests.Unit
                     .Setup(mock => mock.Types)
                     .Returns(new[]
                     {
-                        typeof(ITestInterface), typeof(AbstractTestClass), typeof(AbstractTestClass2), typeof(TestClass1),
-                        typeof(TestClass2), typeof(TestClass3), typeof(TestClass4), typeof(StaticTestClass),
-                        typeof(TestDelegate), typeof(TestEnum), typeof(TestValueType)
+                        typeof(AbstractClosedGenericTestClass),
+                        typeof(AbstractDerivedClosedGenericTestClass),
+                        typeof(AbstractOpenGenericTestClass<>),
+                        typeof(AbstractTestClass),
+                        typeof(AbstractTestClass2),
+                        typeof(ClosedGenericTestClass),
+                        typeof(DerivedClosedGenericTestClass),
+                        typeof(DerivedClosedGenericTestClass2),
+                        typeof(DerivedClosedGenericTestClass3),
+                        typeof(Disposable),
+                        typeof(IGenericTestInterface<>),
+                        typeof(ITestInterface),
+                        typeof(OpenGenericTestClass<>),
+                        typeof(StaticTestClass),
+                        typeof(TestClass1),
+                        typeof(TestClass2),
+                        typeof(TestClass3),
+                        typeof(TestClass4),
+                        typeof(TestDelegate),
+                        typeof(TestEnum),
+                        typeof(TestValueType)
                     });
 
         #endregion Constructors
@@ -41,25 +60,69 @@ namespace Slender.AssemblyScanner.Tests.Unit
             // Arrange
             var _ExpectedVisitor = new TestVisitor
             {
-                VisitedAbstractTypes = new[] { typeof(AbstractTestClass), typeof(AbstractTestClass2) }.ToList(),
+                VisitedAbstractTypes = new[]
+                {
+                    typeof(AbstractClosedGenericTestClass),
+                    typeof(AbstractDerivedClosedGenericTestClass),
+                    typeof(AbstractOpenGenericTestClass<>),
+                    typeof(AbstractTestClass),
+                    typeof(AbstractTestClass2)
+                }.ToList(),
                 VisitedAbstractTypesAndImplementationTypes = new[]
                 {
+                    (typeof(AbstractClosedGenericTestClass), new [] { typeof(DerivedClosedGenericTestClass2) }),
+                    (typeof(AbstractDerivedClosedGenericTestClass), new [] { typeof(DerivedClosedGenericTestClass3) }),
+                    (typeof(AbstractOpenGenericTestClass<>), new [] { typeof(OpenGenericTestClass<>) }),
+                    (typeof(AbstractOpenGenericTestClass<object>), new [] { typeof(ClosedGenericTestClass), typeof(DerivedClosedGenericTestClass), typeof(DerivedClosedGenericTestClass3) }),
                     (typeof(AbstractTestClass), new[] { typeof(TestClass1), typeof(TestClass2) }.AsEnumerable()),
                     (typeof(AbstractTestClass2), new[] { typeof(TestClass3), typeof(TestClass4) })
                 }.ToList(),
                 VisitedDelegateTypes = new[] { typeof(TestDelegate) }.ToList(),
                 VisitedEnumerationTypes = new[] { typeof(TestEnum) }.ToList(),
-                VisitedImplementationTypes = new[] { typeof(TestClass1), typeof(TestClass2), typeof(TestClass3), typeof(TestClass4) }.ToList(),
-                VisitedInterfaceTypes = new[] { typeof(ITestInterface) }.ToList(),
+                VisitedImplementationTypes = new[]
+                {
+                    typeof(ClosedGenericTestClass),
+                    typeof(DerivedClosedGenericTestClass),
+                    typeof(DerivedClosedGenericTestClass2),
+                    typeof(DerivedClosedGenericTestClass3),
+                    typeof(Disposable),
+                    typeof(OpenGenericTestClass<>),
+                    typeof(TestClass1),
+                    typeof(TestClass2),
+                    typeof(TestClass3),
+                    typeof(TestClass4)
+                }.ToList(),
+                VisitedInterfaceTypes = new[] { typeof(IGenericTestInterface<>), typeof(ITestInterface) }.ToList(),
                 VisitedInterfaceTypesAndImplementationTypes = new[]
                 {
+                    (typeof(IDisposable), new [] { typeof(Disposable)}),
+                    (typeof(IGenericTestInterface<>), new [] { typeof(OpenGenericTestClass<>) }),
+                    (typeof(IGenericTestInterface<object>), new [] { typeof(ClosedGenericTestClass), typeof(DerivedClosedGenericTestClass), typeof(DerivedClosedGenericTestClass2), typeof(DerivedClosedGenericTestClass3) }),
                     (typeof(ITestInterface), new[] { typeof(TestClass1), typeof(TestClass2), typeof(TestClass3), typeof(TestClass4) }.AsEnumerable())
                 }.ToList(),
                 VisitedTypes = new[]
                 {
-                    typeof(ITestInterface), typeof(AbstractTestClass), typeof(AbstractTestClass2), typeof(TestClass1),
-                    typeof(TestClass2), typeof(TestClass3), typeof(TestClass4), typeof(StaticTestClass),
-                    typeof(TestDelegate), typeof(TestEnum), typeof(TestValueType)
+                    typeof(AbstractClosedGenericTestClass),
+                    typeof(AbstractDerivedClosedGenericTestClass),
+                    typeof(AbstractOpenGenericTestClass<>),
+                    typeof(AbstractTestClass),
+                    typeof(AbstractTestClass2),
+                    typeof(ClosedGenericTestClass),
+                    typeof(DerivedClosedGenericTestClass),
+                    typeof(DerivedClosedGenericTestClass2),
+                    typeof(DerivedClosedGenericTestClass3),
+                    typeof(Disposable),
+                    typeof(IGenericTestInterface<>),
+                    typeof(ITestInterface),
+                    typeof(OpenGenericTestClass<>),
+                    typeof(StaticTestClass),
+                    typeof(TestClass1),
+                    typeof(TestClass2),
+                    typeof(TestClass3),
+                    typeof(TestClass4),
+                    typeof(TestDelegate),
+                    typeof(TestEnum),
+                    typeof(TestValueType)
                 }.ToList(),
                 VisitedValueTypes = new[] { typeof(TestValueType) }.ToList()
             };
@@ -74,28 +137,6 @@ namespace Slender.AssemblyScanner.Tests.Unit
         #endregion VisitAssemblyScan Tests
 
     }
-
-    public abstract class AbstractTestClass : ITestInterface { }
-
-    public abstract class AbstractTestClass2 : ITestInterface { }
-
-    public interface ITestInterface { }
-
-    public static class StaticTestClass { }
-
-    public class TestClass1 : AbstractTestClass { }
-
-    public class TestClass2 : AbstractTestClass { }
-
-    public class TestClass3 : AbstractTestClass2 { }
-
-    public class TestClass4 : AbstractTestClass2 { }
-
-    public delegate void TestDelegate();
-
-    public enum TestEnum { }
-
-    public struct TestValueType { }
 
     public class TestVisitor : AssemblyScanVisitor
     {

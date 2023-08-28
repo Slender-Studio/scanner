@@ -11,24 +11,34 @@ namespace Slender.AssemblyScanner
         #region - - - - - - Methods - - - - - -
 
         /// <summary>
-        /// Gets all classes inherited by the specified type in least-derived order.
+        /// Gets the type from which the specified <paramref name="type"/> directly inherits.
         /// </summary>
-        /// <param name="type">The type to get all base types for.</param>
-        /// <returns>An enumerable of base types.</returns>
-        public static IEnumerable<Type> GetBaseTypes(this Type type)
+        /// <param name="type">The <see cref="Type"/> to get the base type for.</param>
+        /// <returns>
+        /// The <see cref="Type"/> from which the specified <paramref name="type"/> directly inherits,
+        /// or null if the specified <paramref name="type"/> represents the <see cref="object"/> class or an interface
+        /// </returns>
+        public static Type GetBaseType(this Type type)
             => type.BaseType == null
-                ? Enumerable.Empty<Type>()
-                : type.BaseType.GetBaseTypes().Union(new[] { type.BaseType });
+                ? null
+                : GetTypeDefinition(type.BaseType);
 
         /// <summary>
-        /// Gets all interfaces implemented by this type that are not implemented through inheritence.
+        /// Gets all the interfaces implemented or inherited by the specified <paramref name="type"/>.
         /// </summary>
-        /// <param name="type">The type to get all direct interfaces for.</param>
-        /// <returns>An enumerable of types that are implemented by the specified type.</returns>
-        public static IEnumerable<Type> GetDirectInterfaces(this Type type)
-            => type.GetInterfaces()
-                .Except(type.BaseType?.GetInterfaces() ?? Enumerable.Empty<Type>())
-                .Except(type.GetInterfaces().SelectMany(i => i.GetInterfaces()));
+        /// <param name="type">The <see cref="Type"/> to get the interfaces for.</param>
+        /// <returns>        
+        /// An enumerable of <see cref="Type"/> objects representing all the interfaces implemented or
+        /// inherited by the specified <paramref name="type"/>. -or- An empty enumerable of <see cref="Type"/>,
+        /// if no interfaces are implemented or inherited by the specified <paramref name="type"/>.
+        /// </returns>
+        public static IEnumerable<Type> GetImplementedInterfaces(this Type type)
+            => type.GetInterfaces().Select(t => GetTypeDefinition(t));
+
+        private static Type GetTypeDefinition(Type type)
+            => type.IsGenericType && type.GetGenericArguments().All(t => t.IsGenericParameter)
+                ? type.GetGenericTypeDefinition()
+                : type;
 
         #endregion Methods
 

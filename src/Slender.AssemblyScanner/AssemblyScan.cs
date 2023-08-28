@@ -6,6 +6,9 @@ using System.Reflection;
 namespace Slender.AssemblyScanner
 {
 
+    /// <summary>
+    /// Represents a scanned <see cref="Assembly"/>.
+    /// </summary>
     public class AssemblyScan : IAssemblyScan
     {
 
@@ -17,6 +20,9 @@ namespace Slender.AssemblyScanner
 
         #region - - - - - - Properties - - - - - -
 
+        /// <summary>
+        /// The types defined in the scanned <see cref="Assembly"/>.
+        /// </summary>
         public Type[] Types { get; private set; } = Array.Empty<Type>();
 
         #endregion Properties
@@ -24,34 +30,34 @@ namespace Slender.AssemblyScanner
         #region - - - - - - Methods - - - - - -
 
         /// <summary>
-        /// Adds the Types from the specified Assemblies to this AssemblyScan.
+        /// Adds the types from the specified <paramref name="assemblies"/> to this <see cref="AssemblyScan"/>.
         /// </summary>
-        /// <param name="assemblies">The Assemblies to get the Types from.</param>
+        /// <param name="assemblies">The assemblies to get the types from.</param>
         /// <returns>Itself.</returns>
         public AssemblyScan AddAssemblies(IEnumerable<Assembly> assemblies)
             => this.AddAssemblyScan(new AssemblyScan { Types = assemblies.SelectMany(a => a.GetTypes()).ToArray() });
 
         /// <summary>
-        /// Adds the Types from the specified Assemblies to this AssemblyScan.
+        /// Adds the types from the specified assemblies to this <see cref="AssemblyScan"/>.
         /// </summary>
-        /// <param name="assembly">An Assembly to get Types from.</param>
-        /// <param name="additionalAssemblies">Additional Assemblies to get Types from.</param>
+        /// <param name="assembly">An <see cref="Assembly"/> to get types from.</param>
+        /// <param name="additionalAssemblies">Additional assemblies to get types from.</param>
         /// <returns>Itself.</returns>
         public AssemblyScan AddAssemblies(Assembly assembly, params Assembly[] additionalAssemblies)
             => this.AddAssemblies(new[] { assembly }.Union(additionalAssemblies));
 
         /// <summary>
-        /// Adds the Types from the specified Assembly to this AssemblyScan.
+        /// Adds the types from the specified <paramref name="assembly"/> to this <see cref="AssemblyScan"/>.
         /// </summary>
-        /// <param name="assembly">The Assembly to get Types from.</param>
+        /// <param name="assembly">The <see cref="Assembly"/> to get types from.</param>
         /// <returns>Itself.</returns>
         public AssemblyScan AddAssembly(Assembly assembly)
             => this.AddAssemblies(assembly);
 
         /// <summary>
-        /// Adds the Types from the specified AssemblyScan to this AssemblyScan.
+        /// Adds the types from the specified <paramref name="assemblyScan"/> to this <see cref="AssemblyScan"/>.
         /// </summary>
-        /// <param name="assemblyScan">The AssemblyScan to get Types from.</param>
+        /// <param name="assemblyScan">The <see cref="AssemblyScan"/> to get types from.</param>
         /// <returns>Itself.</returns>
         public AssemblyScan AddAssemblyScan(IAssemblyScan assemblyScan)
         {
@@ -61,34 +67,34 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Gets an AssemblyScan with no Types.
+        /// Gets an <see cref="AssemblyScan"/> with no types.
         /// </summary>
-        /// <returns>An empty AssemblyScan.</returns>
+        /// <returns>An empty <see cref="AssemblyScan"/>.</returns>
         public static AssemblyScan Empty()
             => new AssemblyScan();
 
         /// <summary>
-        /// Gets an AssemblyScan with Types from the specified Assemblies.
+        /// Gets an <see cref="AssemblyScan"/> with types from the specified <paramref name="assemblies"/>.
         /// </summary>
-        /// <param name="assemblies">The Assemblies to get the Types from.</param>
-        /// <returns>A populated AssemblyScan.</returns>
+        /// <param name="assemblies">The assemblies to get the types from.</param>
+        /// <returns>A populated <see cref="AssemblyScan"/>.</returns>
         public static AssemblyScan FromAssemblies(IEnumerable<Assembly> assemblies)
             => new AssemblyScan().AddAssemblies(assemblies);
 
         /// <summary>
-        /// Gets an AssemblyScan with Types from the specified Assemblies.
+        /// Gets an <see cref="AssemblyScan"/> with types from the specified assemblies.
         /// </summary>
-        /// <param name="assembly">An Assembly to get Types from.</param>
-        /// <param name="additionalAssemblies">Additional Assemblies to get Types from.</param>
-        /// <returns>A populated AssemblyScan.</returns>
+        /// <param name="assembly">An <see cref="Assembly"/> to get types from.</param>
+        /// <param name="additionalAssemblies">Additional assemblies to get types from.</param>
+        /// <returns>A populated <see cref="AssemblyScan"/>.</returns>
         public static AssemblyScan FromAssemblies(Assembly assembly, params Assembly[] additionalAssemblies)
             => new AssemblyScan().AddAssemblies(assembly, additionalAssemblies);
 
         /// <summary>
-        /// Gets an AssemblyScan with Types from the specified Assembly.
+        /// Gets an <see cref="AssemblyScan"/> with types from the specified <paramref name="assembly"/>.
         /// </summary>
-        /// <param name="assembly">The Assembly to get Types from.</param>
-        /// <returns>A populated AssemblyScan.</returns>
+        /// <param name="assembly">The <see cref="Assembly"/> to get types from.</param>
+        /// <returns>A populated <see cref="AssemblyScan"/>.</returns>
         public static AssemblyScan FromAssembly(Assembly assembly)
             => new AssemblyScan().AddAssembly(assembly);
 
