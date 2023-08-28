@@ -135,7 +135,7 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the specified value <paramref name="valueType"/>.
+        /// Visits the specified <paramref name="valueType"/>.
         /// </summary>
         /// <param name="valueType">The value <see cref="Type"/> being visited.</param>
         protected virtual void VisitValueType(Type valueType) { }
