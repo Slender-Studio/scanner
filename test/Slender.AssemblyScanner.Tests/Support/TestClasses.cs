@@ -3,15 +3,15 @@
 namespace Slender.AssemblyScanner.Tests.Support
 {
 
-    public abstract class AbstractTestClass : ITestInterface { }
-
-    public abstract class AbstractTestClass2 : ITestInterface { }
-
-    public abstract class AbstractOpenGenericTestClass<TGeneric> : IGenericTestInterface<TGeneric> { }
-
     public abstract class AbstractClosedGenericTestClass : IGenericTestInterface<object> { }
 
     public abstract class AbstractDerivedClosedGenericTestClass : AbstractOpenGenericTestClass<object> { }
+
+    public abstract class AbstractOpenGenericTestClass<TGeneric> : IGenericTestInterface<TGeneric> { }
+
+    public abstract class AbstractTestClass : ITestInterface { }
+
+    public abstract class AbstractTestClass2 : ITestInterface { }
 
     public class ClosedGenericTestClass : AbstractOpenGenericTestClass<object> { }
 
