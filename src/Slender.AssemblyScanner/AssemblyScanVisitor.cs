@@ -31,13 +31,13 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the specified abstract <see cref="Type"/>.
+        /// Visits the specified <paramref name="abstractType"/>.
         /// </summary>
         /// <param name="abstractType">The abstract <see cref="Type"/> being visited.</param>
         protected virtual void VisitAbstract(Type abstractType) { }
 
         /// <summary>
-        /// Visits the specified abstract <see cref="Type"/> and its inheritor types.
+        /// Visits the specified <paramref name="abstractType"/> and its <paramref name="implementationTypes"/>.
         /// </summary>
         /// <param name="abstractType">The abstract <see cref="Type"/> being visited.</param>
         /// <param name="implementationTypes">The instantiable class types that inherit the abstract <see cref="Type"/>.</param>
@@ -77,38 +77,38 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the delegate <see cref="Type"/>.
+        /// Visits the specified <paramref name="delegateType"/>.
         /// </summary>
         /// <param name="delegateType">The delegate <see cref="Type"/> being visited.</param>
         protected virtual void VisitDelegate(Type delegateType) { }
 
         /// <summary>
-        /// Visits the enumeration <see cref="Type"/>.
+        /// Visits the specified <paramref name="enumerationType"/>.
         /// </summary>
         /// <param name="enumerationType">The enumeration <see cref="Type"/> being visited.</param>
         protected virtual void VisitEnumeration(Type enumerationType) { }
 
         /// <summary>
-        /// Visits the instantiable class <see cref="Type"/>.
+        /// Visits the specified <paramref name="implementationType"/>.
         /// </summary>
         /// <param name="implementationType">The instantiable class <see cref="Type"/> being visited.</param>
         protected virtual void VisitImplementation(Type implementationType) { }
 
         /// <summary>
-        /// Visits the interface <see cref="Type"/>.
+        /// Visits the specified <paramref name="interfaceType"/>.
         /// </summary>
         /// <param name="interfaceType">The interface <see cref="Type"/> being visited.</param>
         protected virtual void VisitInterface(Type interfaceType) { }
 
         /// <summary>
-        /// Visits the interface <see cref="Type"/> and its implementer types.
+        /// Visits the specified <paramref name="interfaceType"/> and its <paramref name="implementationTypes"/>.
         /// </summary>
         /// <param name="interfaceType">The interface <see cref="Type"/> being visited.</param>
         /// <param name="implementationTypes">The instantiable class types that implement the interface <see cref="Type"/>.</param>
         protected virtual void VisitInterfaceAndImplementations(Type interfaceType, IEnumerable<Type> implementationTypes) { }
 
         /// <summary>
-        /// Visits the <see cref="Type"/>.
+        /// Visits the specified <paramref name="type"/>.
         /// </summary>
         /// <param name="type">The <see cref="Type"/> being visited.</param>
         protected virtual void VisitType(Type type)
@@ -135,7 +135,7 @@ namespace Slender.AssemblyScanner
         }
 
         /// <summary>
-        /// Visits the value <see cref="Type"/>.
+        /// Visits the specified value <paramref name="valueType"/>.
         /// </summary>
         /// <param name="valueType">The value <see cref="Type"/> being visited.</param>
         protected virtual void VisitValueType(Type valueType) { }
