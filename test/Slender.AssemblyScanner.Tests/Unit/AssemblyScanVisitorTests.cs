@@ -27,11 +27,11 @@ namespace Slender.AssemblyScanner.Tests.Unit
                     .Setup(mock => mock.Types)
                     .Returns(new[]
                     {
-                        typeof(AbstractTestClass),
-                        typeof(AbstractTestClass2),
-                        typeof(AbstractOpenGenericTestClass<>),
                         typeof(AbstractClosedGenericTestClass),
                         typeof(AbstractDerivedClosedGenericTestClass),
+                        typeof(AbstractOpenGenericTestClass<>),
+                        typeof(AbstractTestClass),
+                        typeof(AbstractTestClass2),
                         typeof(ClosedGenericTestClass),
                         typeof(DerivedClosedGenericTestClass),
                         typeof(DerivedClosedGenericTestClass2),
