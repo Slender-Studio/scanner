@@ -20,11 +20,11 @@ namespace Slender.AssemblyScanner.Tests.Unit
         private static IEnumerable<object[]> GetBaseType_VariousTypes_ShouldGetBaseTypeDefinition_MemberData()
             => new[]
             {
-                new object[] { typeof(AbstractTestClass), typeof(object) },
-                new object[] { typeof(AbstractTestClass2), typeof(object) },
-                new object[] { typeof(AbstractOpenGenericTestClass<>), typeof(object) },
                 new object[] { typeof(AbstractClosedGenericTestClass), typeof(object) },
                 new object[] { typeof(AbstractDerivedClosedGenericTestClass), typeof(AbstractOpenGenericTestClass<object>) },
+                new object[] { typeof(AbstractOpenGenericTestClass<>), typeof(object) },
+                new object[] { typeof(AbstractTestClass), typeof(object) },
+                new object[] { typeof(AbstractTestClass2), typeof(object) },
                 new object[] { typeof(ClosedGenericTestClass), typeof(AbstractOpenGenericTestClass<object>) },
                 new object[] { typeof(DerivedClosedGenericTestClass), typeof(OpenGenericTestClass<object>) },
                 new object[] { typeof(DerivedClosedGenericTestClass2), typeof(AbstractClosedGenericTestClass) },
@@ -45,11 +45,11 @@ namespace Slender.AssemblyScanner.Tests.Unit
         private static IEnumerable<object[]> GetImplementedInterfaces_VariousTypes_ShouldGetImplementedInterfaceDefinitions_MemberData()
             => new[]
             {
-                new object[] { typeof(AbstractTestClass), new[] { typeof(ITestInterface) } },
-                new object[] { typeof(AbstractTestClass2), new[] { typeof(ITestInterface) } },
-                new object[] { typeof(AbstractOpenGenericTestClass<>), new[] { typeof(IGenericTestInterface<>) } },
                 new object[] { typeof(AbstractClosedGenericTestClass), new[] { typeof(IGenericTestInterface<object>) } },
                 new object[] { typeof(AbstractDerivedClosedGenericTestClass), new[] { typeof(IGenericTestInterface<object>) } },
+                new object[] { typeof(AbstractOpenGenericTestClass<>), new[] { typeof(IGenericTestInterface<>) } },
+                new object[] { typeof(AbstractTestClass), new[] { typeof(ITestInterface) } },
+                new object[] { typeof(AbstractTestClass2), new[] { typeof(ITestInterface) } },
                 new object[] { typeof(ClosedGenericTestClass), new[] { typeof(IGenericTestInterface<object>) } },
                 new object[] { typeof(DerivedClosedGenericTestClass), new[] { typeof(IGenericTestInterface<object>) } },
                 new object[] { typeof(DerivedClosedGenericTestClass2), new[] { typeof(IGenericTestInterface<object>) } },
