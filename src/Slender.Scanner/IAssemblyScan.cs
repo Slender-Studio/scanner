@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Slender.AssemblyScanner
+namespace Slender.Scanner
 {
 
     /// <summary>

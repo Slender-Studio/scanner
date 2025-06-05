@@ -1,4 +1,4 @@
-﻿namespace Slender.AssemblyScanner.Sample.Vehicles
+﻿namespace Slender.Scanner.Sample.Vehicles
 {
 
     public abstract class RoadVehicle : Vehicle { }

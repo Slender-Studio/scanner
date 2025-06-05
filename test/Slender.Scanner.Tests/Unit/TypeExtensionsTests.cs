@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using Slender.AssemblyScanner.Tests.Support;
+using Slender.Scanner.Tests.Support;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Slender.AssemblyScanner.Tests.Unit
+namespace Slender.Scanner.Tests.Unit
 {
 
     public class TypeExtensionsTests

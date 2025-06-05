@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.AssemblyScanner", "src\Slender.AssemblyScanner\Slender.AssemblyScanner.csproj", "{B466C446-1312-4A45-B4A4-ED01C443C889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.Scanner", "src\Slender.Scanner\Slender.Scanner.csproj", "{B466C446-1312-4A45-B4A4-ED01C443C889}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.AssemblyScanner.Tests", "test\Slender.AssemblyScanner.Tests\Slender.AssemblyScanner.Tests.csproj", "{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.Scanner.Tests", "test\Slender.Scanner.Tests\Slender.Scanner.Tests.csproj", "{76E8436C-FCE0-4C8D-88B9-D525C5AFBED9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slender.AssemblyScanner.Sample", "sample\Slender.AssemblyScanner.Sample\Slender.AssemblyScanner.Sample.csproj", "{CC5E1355-A028-41AD-9192-5250EA7CE889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Slender.Scanner.Sample", "sample\Slender.Scanner.Sample\Slender.Scanner.Sample.csproj", "{CC5E1355-A028-41AD-9192-5250EA7CE889}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

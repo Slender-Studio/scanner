@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Slender.AssemblyScanner.Tests.Support
+namespace Slender.Scanner.Tests.Support
 {
 
     public abstract class AbstractClosedGenericTestClass : IGenericTestInterface<object> { }

@@ -1,4 +1,4 @@
-﻿namespace Slender.AssemblyScanner.Sample
+﻿namespace Slender.Scanner.Sample
 {
 
     public class LoggingVisitor : AssemblyScanVisitor
