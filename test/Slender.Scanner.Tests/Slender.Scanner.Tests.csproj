@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Slender.AssemblyScanner\Slender.AssemblyScanner.csproj" />
+    <ProjectReference Include="..\..\src\Slender.Scanner\Slender.Scanner.csproj" />
   </ItemGroup>
 
 </Project>
