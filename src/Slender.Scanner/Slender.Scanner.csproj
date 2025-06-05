@@ -16,6 +16,7 @@
     <VersionPrefix>1.0.1</VersionPrefix>
     <AssemblyVersion>1.0.1</AssemblyVersion>
     <FileVersion>1.0.1</FileVersion>
+    <PackageIcon>PackageIcon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\media\PackageIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
