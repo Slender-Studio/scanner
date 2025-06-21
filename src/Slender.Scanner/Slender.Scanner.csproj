@@ -4,18 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Robertscorp</Authors>
+    <Authors>Slender</Authors>
     <Description>A simple .NET assembly scanner and associated visitor.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/Robertscorp/AssemblyScanner</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Slender-Studio/scanner</PackageProjectUrl>
     <Copyright>Copyright Slender</Copyright>
-    <RepositoryUrl>https://github.com/Robertscorp/AssemblyScanner</RepositoryUrl>
-    <PackageTags>assembly; scan; scanning; scanner;</PackageTags>
+    <RepositoryUrl>https://github.com/Slender-Studio/scanner</RepositoryUrl>
+    <PackageTags>assembly; scan; scanning;</PackageTags>
     <Company>Slender</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
     <PackageIcon>PackageIcon.png</PackageIcon>
   </PropertyGroup>
 
