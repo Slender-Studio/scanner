@@ -5,6 +5,9 @@ using System.Linq;
 namespace Slender.Scanner
 {
 
+    /// <summary>
+    /// Contains <see cref="Type"/> extension methods.
+    /// </summary>
     internal static class TypeExtensions
     {
 
@@ -16,7 +19,7 @@ namespace Slender.Scanner
         /// <param name="type">The <see cref="Type"/> to get the base type for.</param>
         /// <returns>
         /// The <see cref="Type"/> from which the specified <paramref name="type"/> directly inherits,
-        /// or null if the specified <paramref name="type"/> represents the <see cref="object"/> class or an interface
+        /// or null if the specified <paramref name="type"/> represents the <see cref="object"/> class or an interface.
         /// </returns>
         public static Type GetBaseType(this Type type)
             => type.BaseType == null
