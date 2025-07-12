@@ -1,10 +1,11 @@
-Slender.Scanner is a simple .NET library for scanning assemblies and visiting their types.
+# Slender.Scanner
+A better way to find types within assemblies.
 
 [![NuGet](https://img.shields.io/nuget/v/Slender.Scanner)](https://www.nuget.org/packages/Slender.Scanner) [![NuGet](https://img.shields.io/nuget/dt/Slender.Scanner)](https://www.nuget.org/packages/Slender.Scanner)
 ### What are the advantages of using Slender.Scanner?
  - Slender.Scanner uses the visitor pattern, so it does most of the work for you. Just override methods to define your logic.
  - The entry point of the visitor is an interface, allowing you to write unit tests for your visitor. Just mock up a scanned assembly and verify your logic.
-### How Does It Work?
+### How do I use Slender.Scanner?
 #### Step 1 - Define types in an assembly.
 ```c#
 public interface IInterface { }
@@ -78,4 +79,4 @@ _Visitor.VisitAssemblyScan(_AssemblyScan);
 ### Docs
 Interested in learning more? Check out the [docs](docs/Slender.Scanner.md 'Slender.Scanner').
 ### Leave a Star :star:
-Like the project? Please leave a star!
+Like Slender.Scanner? Please leave a star!
